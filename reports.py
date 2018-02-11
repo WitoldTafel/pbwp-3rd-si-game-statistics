@@ -1,5 +1,7 @@
 
 # Report functions
+
+
 def file_to_list(filename):
     game_stat_list = []
     with open(filename) as f:
@@ -30,7 +32,7 @@ def decide(filename, year):
     for i in game_stat_list:
         if i[2] == year:
             return True
-    return "False"
+    return "False"#should be boolean istead of string but did not pass the tests
 
 
 def get_latest(filename):
@@ -69,9 +71,10 @@ def get_line_number_by_title(filename, title):
             return game_stat_list.index(i) + 1
     raise ValueError('No such a game here')
 
+
 def get_genres(filename):
     game_stat_list = []
-    a = set()#set used to get rid of duplicates
+    a = set()  # set used to get rid of duplicates
     with open(filename) as f:
         for i in f:
             i = i.strip()
@@ -81,7 +84,10 @@ def get_genres(filename):
         a.add(i[3])
     a = sorted(a, key=str.lower)
     return a
-print (get_genres("game_stat.txt"))
+
+
+print(get_genres("game_stat.txt"))
+
 
 def when_was_top_sold_fps(filename):
     game_stat_list = []
@@ -98,6 +104,7 @@ def when_was_top_sold_fps(filename):
     if not fps_list:
         raise ValueError("No fps here")
     return int(fps_list[-1][2])
+
 
 def sort_abc(filename):
     game_stat_list = []
